@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using GraphQLNetCore.Models;
 using System.Threading.Tasks;
 using GraphQLNetCore.Repositories.InMemory;
+using System.Collections.Generic;
 
 namespace GraphQLNetCore.Controllers
 {
@@ -15,6 +16,12 @@ namespace GraphQLNetCore.Controllers
         public GraphQLController(StarWarsQuery starWarsQuery)
         {
             _starWarsQuery = starWarsQuery;
+        }
+
+        [HttpGet]
+        public List<string> GetAll() 
+        {
+            return new List<string>(new string[] { "element1", "element2", "element3" });
         }
 
         [HttpPost]
